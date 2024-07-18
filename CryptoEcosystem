@@ -1,0 +1,17 @@
+# scripts/fetch_market_data.py
+
+import requests
+import pandas as pd
+
+def fetch_crypto_market_data():
+    # Example: Fetch cryptocurrency market data from an API
+    url = 'https://api.coingecko.com/api/v3/coins/markets'
+    params = {'vs_currency': 'usd', 'per_page': 10}
+    response = requests.get(url, params=params)
+    data = response.json()
+    df = pd.DataFrame(data)
+    return df
+
+# Example usage:
+# crypto_market_data = fetch_crypto_market_data()
+# print(crypto_market_data.head())
